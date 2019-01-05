@@ -19,7 +19,7 @@ const myText = "what makes the desert beautiful, said the little prince is that 
 
 function wordSearch(word, text){
   let substring = word;
-  if text.includes(' ') {
+  if (substring.includes(' ') || substring.includes('.')) {
     return false;
   }
   return text.includes(substring);
