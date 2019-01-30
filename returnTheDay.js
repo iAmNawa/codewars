@@ -17,6 +17,6 @@ function whatday(num) {
   if (num === 0 || num > 7) {
     return 'Wrong, please enter a number between 1 and 7';
   }
-  const days = ['empty', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  return days[num];
+  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  return days[num-1];
 }
