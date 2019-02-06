@@ -14,14 +14,5 @@ The input string can be of arbitrary length - in particular, it may be empty. Al
 */
 
 function DNAtoRNA(dna) {
-  var result = dna.split('');
-  result.forEach((item, index) => {
-    if (item == 'T') {
-      return result[index] = 'U';
-    }
-  })
-  return result;
+  return dna.replace(/T/g, 'U');
 }
-
-console.log(DNAtoRNA('TTTT'))
-console.log(DNAtoRNA('TTTEGT'))
