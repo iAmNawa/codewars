@@ -14,13 +14,14 @@ The input string can be of arbitrary length - in particular, it may be empty. Al
 */
 
 function DNAtoRNA(dna) {
-  var result = [];
-  dna.split('').map(item => {
-    if (item == "T") {
-      result.push('U')
-    } else {
-      result.push(item)
+  var result = dna.split('');
+  result.forEach((item, index) => {
+    if (item == 'T') {
+      return result[index] = 'U';
     }
   })
-  return result.join('')
+  return result;
 }
+
+console.log(DNAtoRNA('TTTT'))
+console.log(DNAtoRNA('TTTEGT'))
