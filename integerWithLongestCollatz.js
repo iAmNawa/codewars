@@ -30,3 +30,32 @@ Example: Given an array: [2, 5, 32], both 5 and 32 have Collatz sequences of len
 
 In this case, our function returns 5, because 5 comes before 32 in our array.
 */
+
+function longestCollatz (inputArray) {
+  let solution = inputArray[0];
+  let longest = 0;
+  let longestNumber = 0;
+  function collatz(n) {
+      if (n != 1 && n % 2 == 0) {
+        n = n / 2;
+        solution += '->' + n;
+      }
+      if (n != 1 && n % 2 != 0) {
+        n = 3 * n + 1;
+        solution += '->' + n;
+      }
+      if (n === 1) {
+        if (solution.length > longest) {
+          longest = solution.length;
+          longestNumber = inputArray[i];
+        }
+        solution = inputArray[i+1];
+        return;
+      }
+      collatz(n);
+  }
+  for (var i = 0; i < inputArray.length; i++) {
+    collatz(inputArray[i])
+  }
+  return longestNumber;
+}
