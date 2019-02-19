@@ -24,5 +24,3 @@ function check(a,x) {
   });
   return bool;
 };
-
-check([66, 101], 66)
