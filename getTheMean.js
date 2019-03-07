@@ -10,5 +10,5 @@ The array will never be empty.
 
 function getAverage(marks){
   let answer = marks.reduce((sum, item) => sum + item);
-  return Math.floor(answer/marks.length)
+  return Math.floor(answer/marks.length);
 }
