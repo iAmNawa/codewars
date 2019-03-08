@@ -39,7 +39,6 @@ Only 3th server can process request 5 or request 6.
 
 function processingRequests(servers, requests) {
   requests.sort(function(a,b){return a - b});
-  console.log(requests.sort(function(a,b){return a - b}))
   if (!servers) {
     return 0;
   }
