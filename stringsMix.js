@@ -61,68 +61,44 @@ function mix(s1, s2) {
       secondArr.push('2:' + mixedArr[i].repeat(counts2[mixedArr[i]]))
     }
   }
-  let sortedFirst = firstArr.sort(function(a, b){
+  //console.log(firstArr)
+  //console.log(secondArr)
+  /*let sortedFirst = firstArr.sort(function(a, b){
     return b.length - a.length;
   })
   let sortedSecond = secondArr.sort(function(a, b){
     return b.length - a.length;
-  })
-  console.log(sortedFirst)
-  console.log(sortedSecond)
-  let merging = [];
-  for (var i = 0; i < sortedFirst.length; i++) {
-    let falsy = false;
-    for (var j = 0; j < sortedSecond.length; j++) {
-      let falsy2 = false;
-      if (sortedFirst[i][2] == sortedSecond[j][2]) {
-        if (sortedFirst[i].length > sortedSecond[j].length) {
-          merging.push(sortedFirst[i]);
-          falsy = true;
-        }
-        if (sortedFirst[i].length < sortedSecond[j].length) {
-          merging.push(sortedSecond[j])
-          falsy = true;
-        }
-        if (sortedFirst[i].length == sortedSecond[j].length) {
-          let changeFirst = sortedFirst[i].split('');
-          changeFirst[0] = '3';
-          merging.push(changeFirst.join(''));
-          falsy = true;
-        }
-      }
-    }
-    if (falsy === false) {
-      merging.push(sortedFirst[i])
-    }
-  }
-  for (var i = 0; i < sortedFirst.length; i++) {
-    let falsy = false;
-    for (var j = 0; j < sortedSecond.length; j++) {
-      let falsy2 = false;
-      if (sortedFirst[i][2] == sortedSecond[j][2]) {
-        if (sortedFirst[i].length > sortedSecond[j].length) {
-          merging.push(sortedFirst[i]);
-          falsy = true;
-        }
-        if (sortedFirst[i].length < sortedSecond[j].length) {
-          merging.push(sortedSecond[j])
-          falsy = true;
-        }
-        if (sortedFirst[i].length == sortedSecond[j].length) {
-          let changeFirst = sortedFirst[i].split('');
-          changeFirst[0] = '3';
-          merging.push(changeFirst.join(''));
-          falsy = true;
-        }
-      }
-    }
-    if (falsy === false) {
-      merging.push(sortedFirst[i])
-    }
-  }
-  merging.sort(function(a, b){
+  })*/
+
+  let merging = firstArr + ',' + secondArr;
+  let mergeSplit = merging.split(',');
+  let sorted = mergeSplit.sort(function(a, b){
     return b.length - a.length;
-  });
+  })
+  for (var i = 0; i < sorted.length; i ++) {
+    for (var j = i+1; j < sorted.length; j ++) {
+      if (sorted[i][2] === sorted[j][2]) {
+        if (sorted[i].length > sorted[j].length) {
+          sorted[j] = '';
+        }
+        if (sorted[i].length < sorted[j].length) {
+          sorted[i] = '';
+        }
+        if (sorted[i].length === sorted[j].length) {
+          sorted[i] = '';
+          if (sorted[j].length > 1) {
+            let three = sorted[j].split('');
+            three[0] = '3';
+            sorted[j] = three.join('');
+          }
+        }
+      }
+    }
+  }
+  let sorted2 = sorted.sort(function(a, b){
+    return b.length - a.length;
+  })
+  merging = sorted2;
   merging.sort(function(a, b){
     if (a.length === b.length) {
     return a[0] - b[0];
@@ -141,9 +117,11 @@ function mix(s1, s2) {
       }
     }
   }
-  console.log(answer.join('/'));
+  console.log(answer.join('/'))
+  return answer.join('/');
 }
 
-//mix("Are they here", "yes, they are here")
+mix("Are they here", "yes, they are here")
 //mix("looping is fun but dangerous", "less dangerous than coding")
-mix(" In many languages", " there's a pair of functions")
+//console.log(mix(" In many languages", " there's a pair of functions"))
+//console.log(mix("A generation must confront the looming ", "codewarrs"))
