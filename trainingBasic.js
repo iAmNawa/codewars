@@ -28,7 +28,7 @@ In the end, click "Submit" to submit your code pass this kata.
 */
 
 function animal(obj){
-  console.log(obj.name)
+  return 'This' + obj.color + obj.name + 'has' + obj.legs + 'legs.';
 }
 
 animal({name:"dog",legs:4,color:"white"})
