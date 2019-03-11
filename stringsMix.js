@@ -61,15 +61,6 @@ function mix(s1, s2) {
       secondArr.push('2:' + mixedArr[i].repeat(counts2[mixedArr[i]]))
     }
   }
-  //console.log(firstArr)
-  //console.log(secondArr)
-  /*let sortedFirst = firstArr.sort(function(a, b){
-    return b.length - a.length;
-  })
-  let sortedSecond = secondArr.sort(function(a, b){
-    return b.length - a.length;
-  })*/
-
   let merging = firstArr + ',' + secondArr;
   let mergeSplit = merging.split(',');
   let sorted = mergeSplit.sort(function(a, b){
@@ -77,14 +68,14 @@ function mix(s1, s2) {
   })
   for (var i = 0; i < sorted.length; i ++) {
     for (var j = i+1; j < sorted.length; j ++) {
-      if (sorted[i][2] === sorted[j][2]) {
+      if (sorted[i][2] == sorted[j][2]) {
         if (sorted[i].length > sorted[j].length) {
           sorted[j] = '';
         }
         if (sorted[i].length < sorted[j].length) {
           sorted[i] = '';
         }
-        if (sorted[i].length === sorted[j].length) {
+        if (sorted[i].length == sorted[j].length) {
           sorted[i] = '';
           if (sorted[j].length > 1) {
             let three = sorted[j].split('');
@@ -95,15 +86,25 @@ function mix(s1, s2) {
       }
     }
   }
+  let removeEmpty = [];
+  for (var i = 0; i < sorted.length; i++) {
+    if (sorted[i].length > 3) {
+      removeEmpty.push(sorted[i])
+    }
+  }
+  sorted = removeEmpty;
+  console.log(sorted)
   let sorted2 = sorted.sort(function(a, b){
     return b.length - a.length;
   })
+  console.log(sorted2)
   merging = sorted2;
   merging.sort(function(a, b){
-    if (a.length === b.length) {
+    if (a.length == b.length) {
     return a[0] - b[0];
     }
   });
+  console.log(merging)
   let answer = [];
   for (var i = 0; i < merging.length; i++) {
     if (merging[i].length > 3) {
@@ -121,7 +122,7 @@ function mix(s1, s2) {
   return answer.join('/');
 }
 
-mix("Are they here", "yes, they are here")
+//mix("Are they here", "yes, they are here")
 //mix("looping is fun but dangerous", "less dangerous than coding")
 //console.log(mix(" In many languages", " there's a pair of functions"))
-//console.log(mix("A generation must confront the looming ", "codewarrs"))
+mix("A generation must confront the looming ", "codewarrs")
