@@ -14,7 +14,7 @@ summation(8) -> 36
 
 var summation = function (num) {
   let number = 0;
-  for (var i = 1; i < num; i++) {
+  for (var i = 1; i <= num; i++) {
     number += i;
   }
   return number;
