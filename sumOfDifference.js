@@ -17,9 +17,8 @@ function sumOfDifferences(arr) {
   let number = 0;
   for (var i = 0; i < sorted.length-1; i++) {
     number += (sorted[i]-sorted[i+1]);
-    console.log(number)
   }
-  console.log(number)
+  return number;
 }
 
 sumOfDifferences([-3, -2, -1])
