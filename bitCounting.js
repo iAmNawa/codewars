@@ -7,5 +7,13 @@ Example: The binary representation of 1234 is 10011010010, so the function shoul
 */
 
 var countBits = function(n) {
-  // Program Me
+  let remainder = []
+  if (n === 0) return 0;
+  while (n) {
+    remainder.push(n%2)
+    n = parseInt(n/2)
+  }
+  return remainder.reduce((a,b) => a+b)
 };
+
+countBits(1234)
