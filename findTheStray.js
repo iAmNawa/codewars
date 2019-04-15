@@ -17,7 +17,7 @@ function stray(numbers) {
   if (numbers[1] != num && numbers[2] != num) {
     return num;
   }
-  for (var i = 0; i < numbers.length i++) {
+  for (var i = 0; i < numbers.length; i++) {
     if (numbers[i] != num) {
       return numbers[i];
     }
