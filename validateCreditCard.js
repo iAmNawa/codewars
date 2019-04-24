@@ -55,9 +55,7 @@ function validate(n){
       arr[j] = arr[j].toString().split('').reduce((a,b) => (+a)+(+b))
     }
   }
-  console.log(arr)
   let final = arr.reduce((a,b) => (+a)+(+b))
-  console.log(final)
   if (final%10 === 0) {
     return true
   }
