@@ -11,15 +11,15 @@ For example:
 */
 
 function evenNumbers(array, number) {
-  let arr = [];
+  let arr = []
   for (var i = array.length-1; i >= 0; i--) {
     if (array[i]%2 === 0) {
       arr.unshift(array[i])
     }
     if (arr.length === number) {
-      console.log(arr)
+      return arr
     }
   }
 }
 
-evenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9], 3)
+console.log(evenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9], 3))
